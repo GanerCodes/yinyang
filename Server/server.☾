@@ -3,7 +3,7 @@ cd(@)
 
 safej = 󰲣𝐩(x)≕b/y≕p→.is_relative_to(b)⭜p⭝✗
 
-hack_path = 𝐩(‹../Bin/Release/net7.0/hackathon-2025›)
+hack_path = 𝐩(‹../bin/Release/net7.0/hackathon-2025›)
 
 PB_KEY = "ahfsdau"
 Pub = 𝐩(‹./Public›)
