@@ -87,10 +87,13 @@
         
         const targ = GID("promptBox");
         targ.style.opacity = "0";
-        targ.addEventListener('transitionend', _ => targ.remove());
+        targ.addEventListener('transitionend', _ => {
+            // targ.remove()
+            const ε = document.createElement("loading");
+            targ.replaceWith(ε);
+        });
         
         const pv = GID("promptEntry").value;
-        console.log(GID("promptEntry").value);
         const Rl = await api("prompt", {p:"YINYANG", evil:false, msg:pv});
         const Rr = await api("prompt", {p:"YINYANG", evil:true , msg:pv});
         (ε=GID("yinnText")).innerHTML = "Yin  Says...<br><br>"; ε.innerText += Rl;
@@ -102,6 +105,5 @@
     });
 
   </script>
-                 
 </body>
 </html>

@@ -73,11 +73,9 @@ button:not([disabled]):hover { cursor: pointer; }
 
 sub {vertical-align: sub;  }
 sup {vertical-align: super;}
-
-.loading {
-    content: "↻";
-    animation: rotate 2s linear infinite;
-}
-@keyframes rotate {
-    0%   { transform: rotate(  0deg); }
-    100% { transform: rotate(360deg); } }
+loading { transform: scale(3); }
+loading:after {
+    color:#000;opacity:1;
+    margin:auto;
+    width:5vmax;
+    content:url("/res/loading.svg"); }

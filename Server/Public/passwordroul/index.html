@@ -44,11 +44,12 @@
         <br>
         <h3><i>𝔗𝔥𝔢...</i></h3>
         <h1>Secure Public Password Generator</h1>
-        <br><br>
+        <br>
         <button id="btn" class="submit-btn" onclick="generatePassword()">Generate Password</button>
         <br><br>
-        <h1 id="PassNotif"></h1>
-        <h2 id="GeneratedPass"> </h2>
+        <h2 id="PassNotif"></h2>
+        <h1 id="GeneratedPass"></h1>
+        <br><br><br><br>
         <h3 id="Warning"></p>
     </div>
 </div>
@@ -60,7 +61,7 @@
         const pw = await api("pass", {});
         GID("PassNotif"    ).innerHTML = " Your <i>Secure</i> <sup>Public</sup> <sub><b><i>Password<i></b></sub> is... ";
         GID("GeneratedPass").innerText = pw;
-        GID("Warning"      ).innerHTML = " This password has now been uploaded to a random public pastebin.  Good luck! ";
+        GID("Warning"      ).innerHTML = " This password has been uploaded to a random public pastebin. Good luck! ";
     }
 </script>
                  
