@@ -45,5 +45,6 @@ let main args =
         | "pass" -> printfn "%A" (Passgen.run args[1]) //have to pass it the key as well
         | "pomo" -> printfn "%A" Pomorot.work
         | "rot" -> printfn "%A" Pomorot.brainrot
+        | "matrix" -> printfn "%A" (Matrices.getmatrix (int args[1])) //pass matrix index
         | _ -> printfn $"Error: unrecognized command {args[0]}"
     0
