@@ -1,5 +1,5 @@
 ⮌ os ⨡ environ
-󰋺(‹http›)
+‹http 𝔍 llm›⍭ᴍ󰋺
 cd(@)
 
 safej = 󰲣𝐩(x)≕b/y≕p→.is_relative_to(b)⭜p⭝✗
@@ -13,12 +13,15 @@ cors = ℵ({"access-control-allow-origin": ␛*})
 @HTTP_Server
 ⊢ server(𝚖,𝚙,𝙷,𝚎):
     ‹⟦𝚖⟧:⟦𝚙⟧›☾
-    ¿𝚖≠"GET": ↪
     P = 𝚙₁﹕
-    ¿P≡‹pass›                : ↪$ᴼ⟦hack_path⟧ ⟦P⟧ ⟦PB_KEY⟧󷹹, ℵ(⠶cors)
-    ¿P∈‹pomo rot calm chaos›⍭: ↪$ᴼ⟦hack_path⟧ ⟦P⟧󷹹         , ℵ(⠶cors)
-    P = safej(Pub,P)
-    ¿P.is_dir : P󷸊/‹index.html›
-    ¿P.is_file: ↪ᵇ(P), ℵ(𝙲𝚃=P.suffix, ⠶cors)
+    ¿𝚖≡"GET":
+        ¿P≡‹pass›                : ↪$ᴼ⟦hack_path⟧ ⟦P⟧ ⟦PB_KEY⟧󷹹, ℵ(⠶cors)
+        ¿P∈‹pomo rot calm chaos›⍭: ↪$ᴼ⟦hack_path⟧ ⟦P⟧󷹹         , ℵ(⠶cors)
+        P = safej(Pub,P)
+        ¿P.is_dir : P󷸊/‹index.html›
+        ¿P.is_file: ↪ᵇ(P), ℵ(𝙲𝚃=P.suffix, ⠶cors)
+    ⸘𝚖≡"POST":
+        j = ℵ∘𝔍󰄟(𝚎􋈷∘𝙷􋕨󰂼ₙₜₑₙₜ₋ₗₑₙₜₕ􋕨󷹜)
+        ↪ prompt(jᵖ,jᵉᵛⁱˡ,jᵐˢᵍ), ℵ(⠶cors)
 
 ‹Running server›☾ ► server(port=8081)
