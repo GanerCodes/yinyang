@@ -44,7 +44,7 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/passwordroul/" class="cs-li-link cs-active">
+                        <a href="/frontend/passwordroul/" class="cs-li-link">
                             Password Roulette
                         </a>
                     </li>
@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/balanceboard/" class="cs-li-link">
+                        <a href="/frontend/balanceboard/" class="cs-li-link cs-active">
                             Balance Board
                         </a>
                     </li>
@@ -68,39 +68,82 @@
         </button> -->
     </div>
 </header>
-
 <!-- ======================================= -->
-<!--            Password roulette            -->
+<!--              Balance Board              -->
 <!-- ======================================= -->
-<div class="passroul">
-    <link rel="stylesheet" href="/frontend/css/passwordroul.css">
-    <div class="center-container">
-        <h1> Secure Public Password Generator </h1>
-        <button class="center-button" onclick = "GeneratePassword()"> Generate Password</button>
-        <h1 id = "PassNotif"></h1>
-        <h2 id = "GeneratedPass"> </h2>
-        <h3 id = "Warning"></p>
-        </div>   
+<div class="dilemma-wrapper">
+    <link rel="stylesheet" href="/frontend/css/balanceboard.css">
+    <div class="dilemma-sweep dilemma-sweep-left">
+        <h3 class = "yinText" id = "yinText">Yin Says:<br> Lorem Ipsum</h3>
+    </div>
+    <div class="dilemma-sweep dilemma-sweep-right">
+        <h3 class = "yangText" id = "yangText">Yang Says: <br> Lorem Ipsum</h3>
+    </div>
+    
+    <div class="dilemma-container" id="promptBox">
+        <div class="dilemma-glow-text">Enter Your Dilemma</div>
+        <textarea class="dilemma-textbox" placeholder="Type here..." id="promptEntry"></textarea>
+    </div>
 </div>
 
 <script>
-    function GeneratePassword() {   
-        
-        // TODO: Integrate with F# program
-        // Use get request to call for generated password
-        var generatedPassword = "sD&#E()@OJD#NIF";
-
-        passNotif = document.getElementById("PassNotif");
-        passOutput = document.getElementById("GeneratedPass");
-        passWarning = document.getElementById("Warning");
-
-        passNotif.innerText = " Your password is: "
-        passOutput.innerText = generatedPassword 
-        passWarning.innerText = " This password has now been uploaded to a random public pastebin.  Good luck! "
-
-
+    
+    function fadeOutEffect(targetName) {
+        var fadeTarget = document.getElementById(targetName);
+        var fadeEffect = setInterval(function () {
+            if (!fadeTarget.style.opacity) {
+                fadeTarget.style.opacity = 1;
+            }
+            if (fadeTarget.style.opacity > 0) {
+                fadeTarget.style.opacity -= 0.1;
+            } else {
+                clearInterval(fadeEffect);
+            }
+        }, 200);
     }
-</script>
+
+    const textarea = document.querySelector('.dilemma-textbox');
+    const leftSweep = document.querySelector('.dilemma-sweep-left');
+    const rightSweep = document.querySelector('.dilemma-sweep-right');
+  
+    textarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault(); 
+        const target = document.getElementById("promptBox");
+
+        target.style.opacity = '0'
+        // If you want to remove it from the page after the fadeout
+        target.addEventListener('transitionend', () => target.remove())
+  
+        // Trigger the sweep animation
+        leftSweep.classList.remove('animate-left');
+        rightSweep.classList.remove('animate-right');
+  
+        // Force reflow to restart animation
+        void leftSweep.offsetWidth;
+  
+        leftSweep.classList.add('animate-left');
+        rightSweep.classList.add('animate-right');
+  
+        // You can also trigger further logic here (e.g., submit form or call a function)
+      }
+       // This needs to be integrated with yingyang.py.  Pseudocode for now
+       // Send user textbox to yingyang.py
+       // Retrieve response here
+       yinResponse = "I am Yin, this is a test";
+       yangResponse = "I am Yang, this is a test";
+
+       yinText = document.getElementById("yinText");
+       yangText = document.getElementById("yangText");
+
+       yinText.innerHTML = "Yin Says:<br>" + yinResponse;
+       yangText.innerHTML = "Yang Says:<br>" + yangResponse;
+
+    });
+
+
+
+  </script>
                  
 </body>
 </html>
