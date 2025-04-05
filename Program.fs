@@ -2,19 +2,27 @@
 open System.Security.Cryptography
 open System.Net.Http
 
-module Pomotok =
-    let endpoint = "/pomotok"
-    // One call to start a timer (returns a piece of JS that sleeps for N seconds, then makes a request to pull the TikTok)
-    // setTimeout(lambda goes here, t) where t is in mills
-    // One call to return a div that covers the whole screen, plays embedded TikTok (or Nyancat) for N seconds
-    // maybe a usually-invisble div whose properties are modifiable
+module Pomorot =
+    // regular page: big thing that says: work til {time}
+    // brainrot page: nyancat
+    let pomoendpoint = "/pomo"
+    let rotendpoint = "/rot"
+    let breaktime = string (5*60)                //https://en.wikipedia.org/wiki/Pomodoro_Technique; 5m break
+    let worktime = 25*60
+    let brainrot =
+        $"<div align=\"center\" hx-get=\"{pomoendpoint} hx-trigger=\"load delay:{breaktime}\" hx-swap=\"outerHTML\"><iframe id=\"brainrot\" src=\"https://www.nyan.cat/\" title=\"Brainrot!\" style=\"position:fixed ; top:0 ; left:0 ; bottom:0 ; right:0 ; width:100%% ; height:100%% ; border:none ; margin:0 ; padding:0 ; overflow:hidden ; z-index:999999 ;\">Your browser doesn't support iframes, back to work!</iframe></div>"
+    let work =
+        let clocktime = DateTime.UtcNow.AddMinutes(worktime).ToString("HH:mm")
+        let strworktime = string worktime
+        $"<div align=\"center\" hx-get=\"{rotendpoint}\" hx-trigger=\"load delay:{strworktime}\" hx-swap=\"outerHTML\"><h1>Working until {clocktime}...</h1></div>"
+    let htmxsrc = "<script src=\"https://unpkg.com/htmx.org@2.0.4\" integrity=\"sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+\" crossorigin=\"anonymous\"></script>"  
 
 module Passgen =
     // One call to generate a password
     // an array of 100 random bytes hashed w/ SHA256 & returned as a hex string
     let genpass =
-        let buf = new Span<byte>()
-        (new Random()).NextBytes(buf)
+        let buf: byte [] = Array.zeroCreate 100
+        (new Random(DateTime.UtcNow.Millisecond * DateTime.UtcNow.Microsecond)).NextBytes(buf) // different seeds!
         SHA256.HashData(buf) |> Convert.ToHexString
 
     // Internal functions to send it to a pastebin
@@ -31,5 +39,11 @@ module Passgen =
         pastebin key pass |> ignore
         pass
 
-// For more information see https://aka.ms/fsharp-console-apps
-printfn "Hello from F#"
+[<EntryPoint>]
+let main args =
+    match args[0] with
+        | "pass" -> printfn "%A" (Passgen.run args[1]) //have to pass it the key as well
+        | "pomo" -> printfn "%A" Pomorot.work
+        | "rot" -> printfn "%A" Pomorot.brainrot
+        | _ -> printfn $"Error: unrecognized command {args[0]}"
+    0
