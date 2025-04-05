@@ -43,8 +43,8 @@
     <div class="center-container">
         <br>
         <h3><i>𝔗𝔥𝔢...</i></h3>
-        <h1>Secure Public Password Generator</h1>
-        <br>
+        <h1 style="text-decoration:underline;">Secure&nbsp;&nbsp;Public&nbsp;&nbsp;Password&nbsp;&nbsp;Generator</h1>
+        <br><br>
         <button id="btn" class="submit-btn" onclick="generatePassword()">Generate Password</button>
         <br><br>
         <h2 id="PassNotif"></h2>
@@ -61,16 +61,30 @@
         
         const c  = document.createElement("span");
         const l1 = document.createElement("loading");
+        const st = document.createElement("div");
+        st.className = "textStack";
         const t1  = document.createElement("h1");
         t1.innerHTML = "<i>Your password is generating</i>";
-        const t2  = document.createElement("h4");
+        const t2  = document.createElement("h3");
+        st.append(t1,t2)
         const l2 = document.createElement("loading");
         c.className = "loadSpan";
-        c.append(l1, t1, l2);
+        c.append(l1, st, l2);
         ε.replaceWith(c);
-        for(let i=0; i<3; i++) {
-            t2.innerText = "aisjdasj";
-            await sleep(1); }
+        const funnys = [
+            "Crunching numbers...",
+            "Running Shor's algorithm...",
+            "Crushing spirits...",
+            "Shorting Short's algorithm...",
+            "Salting, peppering, and Sassafrassing...",
+            "Human reviewing password for strength...",
+            "Password was found in node_modules, regenerating...",
+            "4⁹² earth-shattering severity vulnerabilities found, pressing enter nonetheless...",
+        ];
+        const rint = x => Math.floor(x*Math.random());
+        for(let i=0, b=4+rint(5); i<b && funnys.length; i++) {
+            t2.innerText = funnys.splice(rint(1+rint(funnys.length)),1)[0];
+            await sleep(2.5); }
         const pw = await api("pass", {});
         c.remove();
         GID("PassNotif"    ).innerHTML = " Your <i>Secure</i> <sup>Public</sup> <sub><b><i>Password<i></b></sub> is... ";
