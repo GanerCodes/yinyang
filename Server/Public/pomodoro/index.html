@@ -36,13 +36,12 @@
                 </ul>
             </div>
         </nav>
-        
     </div>
 </header>
 
 <div id="content"></div>
 <script defer>
-    api("rot",{}).then(x => GID("content").outerHTML=x);
+    api("pomo",{}).then(x => GID("content").innerHTML=x);
 </script>
 
 </body>
