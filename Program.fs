@@ -6,7 +6,7 @@ module Pomorot =
     let pomoendpoint = "/pomo"
     let rotendpoint = "/rot"
     let breaktime = string (5*60)                //https://en.wikipedia.org/wiki/Pomodoro_Technique; 5m break
-    let worktime = 25*60                //Have to be strings because we're interpolating
+    let worktime = 25*60
     let brainrot =
         $"<div align=\"center\" hx-get=\"{pomoendpoint} hx-trigger=\"load delay:{breaktime}\" hx-swap=\"outerHTML\"><iframe id=\"brainrot\" src=\"https://www.nyan.cat/\" title=\"Brainrot!\" style=\"position:fixed ; top:0 ; left:0 ; bottom:0 ; right:0 ; width:100%% ; height:100%% ; border:none ; margin:0 ; padding:0 ; overflow:hidden ; z-index:999999 ;\">Your browser doesn't support iframes, back to work!</iframe></div>"
     let work =
