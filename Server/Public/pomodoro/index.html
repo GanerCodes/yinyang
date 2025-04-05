@@ -42,7 +42,7 @@
 
 <div id="content"></div>
 <script defer>
-    GID("content").outerHTML = await api("rot",{});
+    api("rot",{}).then(x => GID("content").outerHTML=x);
 </script>
 
 </body>
