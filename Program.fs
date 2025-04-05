@@ -29,7 +29,6 @@ module Pomorot =
         let clocktime = DateTime.UtcNow.AddMinutes(worktime).ToString("HH:mm")
         let strworktime = string worktime
         $"<div align=\"center\" hx-get=\"{rotendpoint}\" hx-trigger=\"load delay:{strworktime}\" hx-swap=\"outerHTML\"><h1>Working until {clocktime}...</h1></div>"
-    let htmxsrc = "<script src=\"https://unpkg.com/htmx.org@2.0.4\" integrity=\"sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+\" crossorigin=\"anonymous\"></script>"  
 
 module Passgen =
     // One call to generate a password
