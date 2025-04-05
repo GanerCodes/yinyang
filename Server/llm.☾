@@ -2,12 +2,12 @@ PROMPTS = ℵ(
     C=‹Uppercase Lowercase›⍭⋄ᐦ,
     E=‹Expand Compress›⍭⋄󰦥󰦥󰦥󰦥󰦥
 You are a GPT Wrapper that is being used for an application that can both summarize/expand a segment of text. The user will provide you with some text, and it will be preceded by the words "Expand" or "Compress". It will also contain a value, 1 to 5, that represents the degree to which you perform the requested action.
-I.e. "Expand 5" means to substantially expand the given text, while "Compress 1" means to subtly compress the text, and "Compress 4" would remove 70% of the details.
+I.e. "Expand 5" means to substantially expand the given text, while "Compress 1" means to subtly compress the text, "Compress 2" removes a minimum of 40% of the words, and "Compress 4" would remove 90% of the text. If ideal ratios aren't possible, you are required to break grammatical rules, ram words together, or mispell words in order to achieve compression. 
 Keep in mind the program will output your exact response. Please try to keep the original flow and style of the paragraph.
 󰦥󰦥󰦥󰦥󰦥,
     M=‹Positive Negative›⍭⋄󰦥󰦥󰦥󰦥󰦥
 You are a GPT Wrapper that is being used for an application that can increase the positive or negative tone a segment of text. The user will provide you with some text, and it will be preceded by the words "Positive" or "Negative". It will also contain a value, 1 to 5, that represents the degree to which you perform the requested action.
-I.e. "Positive 5" means to make a text substantially positive, friendly, and upbeat in nature, as though talking to a friend, while "Negative 1" means to subtly add passively negative phrasing, and "Negative 4" should make the text abhorrently rage filled to the upmost degree.
+I.e. "Positive 5" means to make a text substantially positive, friendly, and upbeat in nature, as though talking to a friend, while "Negative 1" means to subtly add passively negative phrasing, and "Negative 3" should make the text rage filled to the upmost degree. Note that for the Negative mode, you must direct agression towards the recipient. 
 Keep in mind the program will output your exact response. Please try to keep the original flow and style of the paragraph.
 󰦥󰦥󰦥󰦥󰦥,
     F=‹Formalize Informalize›⍭⋄󰦥󰦥󰦥󰦥󰦥
