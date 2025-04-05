@@ -26,7 +26,7 @@ module Pomorot =
     let brainrot =
         $"<div align=\"center\" hx-get=\"{pomoendpoint}\" hx-trigger=\"load delay:{breaktime}s\" hx-swap=\"outerHTML\"><iframe id=\"brainrot\" src=\"https://www.nyan.cat/\" title=\"Brainrot!\" style=\"position:fixed ; top:0 ; left:0 ; bottom:0 ; right:0 ; width:100%% ; height:100%% ; border:none ; margin:0 ; padding:0 ; overflow:hidden ; z-index:999999 ;\">Your browser doesn't support iframes, back to work!</iframe></div>"
     let work =
-        let clocktime = DateTime.UtcNow.AddMinutes(worktime).ToString("HH:mm")
+        let clocktime = DateTime.UtcNow.AddSeconds(worktime).ToString("HH:mm")
         let strworktime = string worktime
         $"<div align=\"center\" hx-get=\"{rotendpoint}\" hx-trigger=\"load delay:{strworktime}s\" hx-swap=\"outerHTML\"><h1>Working until {clocktime}...</h1></div>"
 
