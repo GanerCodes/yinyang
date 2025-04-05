@@ -1,11 +1,11 @@
+⮌ os ⨡ environ
 󰋺(‹http›)
 cd(@)
 
 safej = 󰲣𝐩(x)≕b/y≕p→.is_relative_to(b)⭜p⭝✗
 
 hack_path = 𝐩(‹../bin/Release/net9.0/hackathon-2025›)
-
-PB_KEY = "ahfsdau"
+PB_KEY = os.environ"asdasdas"
 Pub = 𝐩(‹./Public›)
 cors = ℵ({"access-control-allow-origin": ␛*})
 
@@ -14,9 +14,8 @@ cors = ℵ({"access-control-allow-origin": ␛*})
     ‹⟦𝚖⟧:⟦𝚙⟧›☾
     ¿𝚖≠"GET": ↪
     P = 𝚙₁﹕
-    ¿P≡‹pass›: ↪$ᴼ⟦hack_path⟧ pass ⟦PB_KEY⟧󷹹, ℵ(⠶cors)
-    ¿P≡‹pomo›: ↪$ᴼ⟦hack_path⟧ pomo󷹹, ℵ(⠶cors)
-    ¿P≡‹rot󷺗›: ↪$ᴼ⟦hack_path⟧ rot󷺗󷹹, ℵ(⠶cors)
+    ¿P≡‹pass󷺗›               : ↪$ᴼ⟦hack_path⟧ pass ⟦PB_KEY⟧󷹹, ℵ(⠶cors)
+    ¿P∈‹pomo rot calm chaos›⍭: ↪$ᴼ⟦hack_path⟧ ⟦P⟧󷹹, ℵ(⠶cors)
     P = safej(Pub,P)
     ¿P.is_dir : P󷸊/‹index.html›
     ¿P.is_file: ↪ᵇ(P), ℵ(𝙲𝚃=P.suffix, ⠶cors)
