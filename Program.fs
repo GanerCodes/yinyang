@@ -13,7 +13,7 @@ module Calmandchaos =
     // let waittime = string (8*60)        //https://en.wikipedia.org/wiki/Bagua
     let waittime = string 30
     let format endpoint audio image =
-        $"<div align=\"center\" hx-get=\"{endpoint}\" hx-trigger=\"load delay:{waittime}s\" hx-swap=\"outerHTML\"><image src=\"{image}\" /><audio src=\"{audio}\" autoplay=\"true\" loop=\"true\"></audio></div>"
+        $"<div align=\"center\" hx-get=\"{endpoint}\" hx-trigger=\"load delay:{waittime}s\" hx-swap=\"outerHTML\" style='object-fit: fill'><image src=\"{image}\" style='object-fit: contain; max-width: 100%%; height:auto'/><audio src=\"{audio}\" autoplay=\"true\" loop=\"true\"></audio></div>"
     let calm = format chaosendpoint calmaudsrc calmimgsrc
     let chaos = format calmendpoint chaosaudsrc chaosimgsrc
 
