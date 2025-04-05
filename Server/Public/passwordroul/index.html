@@ -58,7 +58,21 @@
     var generatePassword = async _ => {
         const ε = GID("btn");
         // TODO funny thing where it loads for like 15 seconds, showing dumb text in meantime (i.e. "hacking the mainframe" but more origional)
+        
+        const c  = document.createElement("span");
+        const l1 = document.createElement("loading");
+        const t1  = document.createElement("h1");
+        t1.innerHTML = "<i>Your password is generating</i>";
+        const t2  = document.createElement("h4");
+        const l2 = document.createElement("loading");
+        c.className = "loadSpan";
+        c.append(l1, t1, l2);
+        ε.replaceWith(c);
+        for(let i=0; i<3; i++) {
+            t2.innerText = "aisjdasj";
+            await sleep(1); }
         const pw = await api("pass", {});
+        c.remove();
         GID("PassNotif"    ).innerHTML = " Your <i>Secure</i> <sup>Public</sup> <sub><b><i>Password<i></b></sub> is... ";
         GID("GeneratedPass").innerText = pw;
         GID("Warning"      ).innerHTML = " This password has been uploaded to a random public pastebin. Good luck! ";

@@ -9,6 +9,7 @@
 .textboxarea {
     display:flex;flex-wrap:wrap;
     align-items:center;justify-content:center;
+    box-shadow: 0 0 8px #333;
     gap: 0vw; }
 
 .textboxLight,.textboxDark {
@@ -36,7 +37,8 @@ bruh, swag, psuedo {border-radius: 50000px;}
     justify-content: center;
     justify-items: center;
     align-content: space-around;
-    overflow: hidden; }
+    overflow: hidden;
+    box-shadow: 0 0 8px #333; }
 .yinyang_bg:hover { cursor:pointer; }
    
 bruh {
