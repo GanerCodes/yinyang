@@ -26,6 +26,10 @@ module Passgen =
         let content = new StringContent($"api_dev_key={key}&api_paste_code={x}&api_option=paste", headers)
         client.PostAsync(endpoint, content).Result
 
+    let run key =
+        let pass = genpass
+        pastebin key pass |> ignore
+        pass
+
 // For more information see https://aka.ms/fsharp-console-apps
 printfn "Hello from F#"
-printfn "%A" Passgen.genpass
