@@ -8,6 +8,89 @@
 </head>
                    
 <body>
+
+    <style>
+    .background {
+    background: #000;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+
+.background #yy {
+    margin: 0px;
+    padding: 0px;
+    transform-origin: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: space-around;
+    overflow: hidden;
+}
+
+/* Yin-Yang Background: Set z-index to -1 to push it behind other content */
+.yinyang_bg {
+    position: absolute; /* Ensures it's behind all content */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0000;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bruh {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    z-index: 1; /* Ensures content is on top of Yin-Yang background */
+}
+
+swag {
+    position: absolute;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    clip-path: polygon(calc(50% - 50vw) calc(50% - 50vh),
+                       calc(50% + 50vw) calc(50% - 50vh),
+                       calc(50% + 50vw) calc(50% + 50vh),
+                       calc(50% - 50vw) calc(50% + 50vh));
+}
+
+psuedo {
+    position: absolute;
+    z-index: -1;
+    content: "";
+    transition: transform 1s ease;
+    transform: rotate(0deg);
+    width: 200vw;
+    height: 200vw;
+    background: url('/frontend/res/yinyang.svg') no-repeat center;
+    background-size: cover;
+}
+
+.rot180 {
+    transform: rotate(180deg);
+}
+    </style>
+<div class="background">
+    <div class="yinyang_bg">
+        <div class="bruh">
+            <swag><psuedo></psuedo></swag>
+            <text style="color:red">left stuff</text>
+            <text style="color:red">right stuff</text>
+        </div>
+    </div>
+    <script>
+        var rot = _=>document.querySelector("psuedo").classList.toggle("rot180");
+    </script>
+</div>
 <!-- ============================================ -->
 <!--                 Navigation                   -->
 <!-- ============================================ -->
@@ -74,16 +157,18 @@
 <!-- ======================================= -->
 <div class="yinyang">
     <div class="container">
+        <div class="image-container">
+            <div class="expand-text" id="expand" style="color:#808080">
+                <span style="color:white">Com</span><span style="color:black">press</span>
+            </div>
+            <img src="/frontend/res/yinyangflip.png" id="yinyang" style="height: 10vh" onclick="FlipOption()"></img>
+        </div>
         <div class="textboxarea">
             <link rel="stylesheet" href="/frontend/css/yinyang.css">
             <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" id="inputbox" placeholder="Enter input"></textarea>
-            <div class="image-container">
-                <div class="expand-text" id="expand">Expand</div>
-                <img src="/frontend/res/yinyang.png" id="yinyang" style="height: 10vh" onclick="FlipOption()"></img>
-            </div>
+            <textarea class="textboxLight" id="inputbox" placeholder="Enter input"></textarea>
             <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" placeholder="Output text"></textarea>
+            <textarea class="textboxDark" id="outputbox" placeholder="Output text"></textarea>
         </div>
         <button class="submit-btn" type="submit" onclick="SendText()">Submit</button>
     </div>
@@ -93,10 +178,26 @@
 
             if (document.getElementById("yinyang").src.endsWith("/frontend/res/yinyang.png")){
                 document.getElementById("yinyang").src = "/frontend/res/yinyangflip.png";
-                element.innerText = "Compress";
+                element.innerHTML = '<span style="color:white">Com</span><span style="color:black">press</span>';
+                document.querySelector("psuedo").classList.toggle("rot180")
+
+                // Change box colors to match yin-yang:
+                document.getElementById("inputbox").classList.add('textboxLight');
+                document.getElementById("inputbox").classList.remove('textboxDark');
+                document.getElementById("outputbox").classList.add('textboxDark');
+                document.getElementById("outputbox").classList.remove('textboxLight');
+
             } else {
                 document.getElementById("yinyang").src = "/frontend/res/yinyang.png";
-                element.innerText = "Expand";
+                element.innerHTML = '<span style="color:black">Ext</span><span style="color:white">end</span>';
+                document.querySelector("psuedo").classList.toggle("rot180")
+                
+                // Change box colors to match yin-yang:
+                document.getElementById("inputbox").classList.add('textboxDark');
+                document.getElementById("inputbox").classList.remove('textboxLight');
+                document.getElementById("outputbox").classList.add('textboxLight');
+                document.getElementById("outputbox").classList.remove('textboxDark');
+
             }
         }
 
