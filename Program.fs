@@ -12,7 +12,7 @@ module Calmandchaos =
     let chaosimgsrc = "/chaos.jpeg"
     let waittime = string (8*60)        //https://en.wikipedia.org/wiki/Bagua
     let format endpoint audio image =
-        $"<div align=\"center\" hx-get=\"{endpoint}\" hx-trigger=\"load delay:{waittime}\" hx-swap=\"outerHTML\"><image src=\"{image}\" /><audio src=\"{audio}\" autoplay=\"true\" loop=\"true\"></audio></div>"
+        $"<div align=\"center\" hx-get=\"{endpoint}\" hx-trigger=\"load delay:{waittime}s\" hx-swap=\"outerHTML\"><image src=\"{image}\" /><audio src=\"{audio}\" autoplay=\"true\" loop=\"true\"></audio></div>"
     let calm = format chaosendpoint calmaudsrc calmimgsrc
     let chaos = format calmendpoint chaosaudsrc chaosimgsrc
 
@@ -24,11 +24,11 @@ module Pomorot =
     let breaktime = string (5*60)                //https://en.wikipedia.org/wiki/Pomodoro_Technique; 5m break
     let worktime = 25*60
     let brainrot =
-        $"<div align=\"center\" hx-get=\"{pomoendpoint}\" hx-trigger=\"load delay:{breaktime}\" hx-swap=\"outerHTML\"><iframe id=\"brainrot\" src=\"https://www.nyan.cat/\" title=\"Brainrot!\" style=\"position:fixed ; top:0 ; left:0 ; bottom:0 ; right:0 ; width:100%% ; height:100%% ; border:none ; margin:0 ; padding:0 ; overflow:hidden ; z-index:999999 ;\">Your browser doesn't support iframes, back to work!</iframe></div>"
+        $"<div align=\"center\" hx-get=\"{pomoendpoint}\" hx-trigger=\"load delay:{breaktime}s\" hx-swap=\"outerHTML\"><iframe id=\"brainrot\" src=\"https://www.nyan.cat/\" title=\"Brainrot!\" style=\"position:fixed ; top:0 ; left:0 ; bottom:0 ; right:0 ; width:100%% ; height:100%% ; border:none ; margin:0 ; padding:0 ; overflow:hidden ; z-index:999999 ;\">Your browser doesn't support iframes, back to work!</iframe></div>"
     let work =
         let clocktime = DateTime.UtcNow.AddMinutes(worktime).ToString("HH:mm")
         let strworktime = string worktime
-        $"<div align=\"center\" hx-get=\"{rotendpoint}\" hx-trigger=\"load delay:{strworktime}\" hx-swap=\"outerHTML\"><h1>Working until {clocktime}...</h1></div>"
+        $"<div align=\"center\" hx-get=\"{rotendpoint}\" hx-trigger=\"load delay:{strworktime}s\" hx-swap=\"outerHTML\"><h1>Working until {clocktime}...</h1></div>"
 
 module Passgen =
     // One call to generate a password
