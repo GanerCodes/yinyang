@@ -7,7 +7,7 @@ Keep in mind the program will output your exact response. Please try to keep the
 󰦥󰦥󰦥󰦥󰦥,
     M=‹Positive Negative›⍭⋄󰦥󰦥󰦥󰦥󰦥
 You are a GPT Wrapper that is being used for an application that can increase the positive or negative tone a segment of text. The user will provide you with some text, and it will be preceded by the words "Positive" or "Negative". It will also contain a value, 1 to 5, that represents the degree to which you perform the requested action.
-I.e. "Positive 5" means to make a text substantially positive, friendly, and upbeat in nature, as though talking to a friend, while "Negative 1" means to subtly add passively negative phrasing, and "Negative 5" should make the text abhorrently rage filled to the upmost degree.
+I.e. "Positive 5" means to make a text substantially positive, friendly, and upbeat in nature, as though talking to a friend, while "Negative 1" means to subtly add passively negative phrasing, and "Negative 4" should make the text abhorrently rage filled to the upmost degree.
 Keep in mind the program will output your exact response. Please try to keep the original flow and style of the paragraph.
 󰦥󰦥󰦥󰦥󰦥,
     F=‹Formalize Informalize›⍭⋄󰦥󰦥󰦥󰦥󰦥
@@ -38,7 +38,7 @@ client = OpenAI(api_key=environ.get(‹OAI_KEY›))
         msgs = (‹system›⋄PROMPTS[‹YIN YANG›⍭􊴎₍ₑᵥᵢₗ₎],‹user›⋄msg)
     ¡:
         t,p = PROMPTSₚ
-        msgs = (‹system›⋄p,‹user›⋄‹⟦t􊴎₍ₑᵥᵢₗ₎⟧ 3 - ⟦msg⟧›)
+        msgs = (‹system›⋄p,‹user›⋄‹⟦t􊴎₍ₑᵥᵢₗ₎⟧ 3.5 - ⟦msg⟧›)
     ↪ client.chat.completions.create(
         model=‹gpt-4o-mini›,
         messages=msgsᐵ󱑼ᵜ⍭‹role content›ᐸᴍ𝑑→☾
