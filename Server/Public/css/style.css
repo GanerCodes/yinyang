@@ -2,11 +2,13 @@
     /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
     --primary: #000;
     --primaryLight: #fff;
+    --bg: #334;
     --secondary: #fff;
     --secondaryLight: #000;
     --headerColor: #4e4b66;
     --bodyTextColor: #4e4b66;
     --bodyTextColorWhite: #4e4b66;
+    --headerBg: #bbc;
     /* 13px - 16px */
     --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
     /* 31px - 49px */
@@ -17,8 +19,15 @@
 }
 
 body {
+    background-color: var(--bg);
     margin: 0;
-    padding: 0;
+    padding: 0; }
+
+textarea {
+    border: none;
+    outline: none;
+    transition: background-color 1s ease;
+    resize: none;
 }
 
 *, *:before, *:after {

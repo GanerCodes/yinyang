@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/frontend/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Yin-Yang</title>
 </head>
                    
@@ -13,12 +13,12 @@
 <!-- ============================================ -->
 
 <header id="cs-navigation">
-    <link rel="stylesheet" href="/frontend/css/header.css">
-    <script src="/frontend/js/header.js"></script>
+    <link rel="stylesheet" href="/css/header.css">
+    <script src="/js/header.js"></script>
     <div class="cs-container">
         <!--Nav Logo-->
         <a href="" class="cs-logo" aria-label="back to home">
-            <img src="/frontend/res/logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
+            <img src="/res/logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -34,27 +34,27 @@
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li">
-                        <a href="/frontend/" class="cs-li-link">
+                        <a href="/" class="cs-li-link">
                             Home
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/yinyang/" class="cs-li-link cs-active">
+                        <a href="/yinyang/" class="cs-li-link">
                             Yin-Yang Text
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/passwordroul/" class="cs-li-link">
+                        <a href="/passwordroul/" class="cs-li-link">
                             Password Roulette
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/pomodoro/" class="cs-li-link">
+                        <a href="/pomodoro/" class="cs-li-link">
                             Pomodoro Brainrot
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/productivity/" class="cs-li-link">
+                        <a href="/productivity/" class="cs-li-link cs-active">
                             Productive Slacking
                         </a>
                     </li>
@@ -68,46 +68,11 @@
         </button> -->
     </div>
 </header>
-
 <!-- ======================================= -->
-<!--             Yin-Yang Page               -->
+<!--               Productivity              -->
 <!-- ======================================= -->
-<div class="yinyang">
-    <div class="container">
-        <div class="textboxarea">
-            <link rel="stylesheet" href="/frontend/css/yinyang.css">
-            <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" id="inputbox" placeholder="Enter input"></textarea>
-            <div class="image-container">
-                <div class="expand-text" id="expand">Expand</div>
-                <img src="/frontend/res/yinyang.png" id="yinyang" style="height: 10vh" onclick="FlipOption()"></img>
-            </div>
-            <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" placeholder="Output text"></textarea>
-        </div>
-        <button class="submit-btn" type="submit" onclick="SendText()">Submit</button>
-    </div>
-    <script>
-        function FlipOption() {
-            var element = document.getElementById("expand");
-
-            if (document.getElementById("yinyang").src.endsWith("/frontend/res/yinyang.png")){
-                document.getElementById("yinyang").src = "/frontend/res/yinyangflip.png";
-                element.innerText = "Compress";
-            } else {
-                document.getElementById("yinyang").src = "/frontend/res/yinyang.png";
-                element.innerText = "Expand";
-            }
-        }
-
-        function SendText() {
-            if (document.getElementById("expand").innerText=="Expand") {
-                console.log("Expand 3 - " + document.getElementById("inputbox").value);
-            } else {
-                console.log("Compress 3 - " + document.getElementById("inputbox").value);
-            }
-        }
-    </script>
+<div class="passroul">
+   
 </div>
 
 
