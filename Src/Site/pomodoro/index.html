@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/yinyang/" class="cs-li-link cs-active">
+                        <a href="/frontend/yinyang/" class="cs-li-link">
                             Yin-Yang Text
                         </a>
                     </li>
@@ -49,7 +49,7 @@
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/pomodoro/" class="cs-li-link">
+                        <a href="/frontend/pomodoro/" class="cs-li-link cs-active">
                             Pomodoro Brainrot
                         </a>
                     </li>
@@ -68,46 +68,11 @@
         </button> -->
     </div>
 </header>
-
 <!-- ======================================= -->
-<!--             Yin-Yang Page               -->
+<!--               Pomodoro                  -->
 <!-- ======================================= -->
-<div class="yinyang">
-    <div class="container">
-        <div class="textboxarea">
-            <link rel="stylesheet" href="/frontend/css/yinyang.css">
-            <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" id="inputbox" placeholder="Enter input"></textarea>
-            <div class="image-container">
-                <div class="expand-text" id="expand">Expand</div>
-                <img src="/frontend/res/yinyang.png" id="yinyang" style="height: 10vh" onclick="FlipOption()"></img>
-            </div>
-            <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" placeholder="Output text"></textarea>
-        </div>
-        <button class="submit-btn" type="submit" onclick="SendText()">Submit</button>
-    </div>
-    <script>
-        function FlipOption() {
-            var element = document.getElementById("expand");
-
-            if (document.getElementById("yinyang").src.endsWith("/frontend/res/yinyang.png")){
-                document.getElementById("yinyang").src = "/frontend/res/yinyangflip.png";
-                element.innerText = "Compress";
-            } else {
-                document.getElementById("yinyang").src = "/frontend/res/yinyang.png";
-                element.innerText = "Expand";
-            }
-        }
-
-        function SendText() {
-            if (document.getElementById("expand").innerText=="Expand") {
-                console.log("Expand 3 - " + document.getElementById("inputbox").value);
-            } else {
-                console.log("Compress 3 - " + document.getElementById("inputbox").value);
-            }
-        }
-    </script>
+<div class="passroul">
+   
 </div>
 
 
