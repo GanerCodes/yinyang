@@ -55,11 +55,11 @@ module Passgen =
 [<EntryPoint>]
 let main args =
     match args[0] with
-        | "pass" -> printfn "%A" (Passgen.run args[1]) //have to pass it the key as well
-        | "pomo" -> printfn "%A" Pomorot.work
-        | "rot" -> printfn "%A" Pomorot.brainrot
-        | "matrix" -> printfn "%A" (Matrices.getmatrix (int args[1])) //pass matrix index
-        | "calm" -> printfn "%A" Calmandchaos.calm
-        | "chaos" -> printfn "%A" Calmandchaos.chaos
+        | "pass" -> printfn "%s" (Passgen.run args[1]) //have to pass it the key as well
+        | "pomo" -> printfn "%s" Pomorot.work
+        | "rot" -> printfn "%s" Pomorot.brainrot
+        | "matrix" -> printfn "%s" (Matrices.getmatrix (int args[1])) //pass matrix index
+        | "calm" -> printfn "%s" Calmandchaos.calm
+        | "chaos" -> printfn "%s" Calmandchaos.chaos
         | _ -> printfn $"Error: unrecognized command {args[0]}"
     0
