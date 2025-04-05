@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/frontend/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Yin-Yang</title>
 </head>
                    
@@ -13,12 +13,12 @@
 <!-- ============================================ -->
 
 <header id="cs-navigation">
-    <link rel="stylesheet" href="/frontend/css/header.css">
-    <script src="/frontend/js/header.js"></script>
+    <link rel="stylesheet" href="/css/header.css">
+    <script src="/js/header.js" defer></script>
     <div class="cs-container">
         <!--Nav Logo-->
         <a href="" class="cs-logo" aria-label="back to home">
-            <img src="/frontend/res/logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
+            <img src="/res/logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -34,27 +34,27 @@
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
                     <li class="cs-li">
-                        <a href="/frontend/" class="cs-li-link">
+                        <a href="/" class="cs-li-link">
                             Home
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/yinyang/" class="cs-li-link">
+                        <a href="/yinyang/" class="cs-li-link cs-active">
                             Yin-Yang Text
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/passwordroul/" class="cs-li-link">
+                        <a href="/passwordroul/" class="cs-li-link">
                             Password Roulette
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/pomodoro/" class="cs-li-link cs-active">
+                        <a href="/pomodoro/" class="cs-li-link">
                             Pomodoro Brainrot
                         </a>
                     </li>
                     <li class="cs-li">
-                        <a href="/frontend/productivity/" class="cs-li-link">
+                        <a href="/productivity/" class="cs-li-link">
                             Productive Slacking
                         </a>
                     </li>
@@ -68,14 +68,55 @@
         </button> -->
     </div>
 </header>
+
 <!-- ======================================= -->
-<!--               Pomodoro                  -->
+<!--             Yin-Yang Page               -->
 <!-- ======================================= -->
-<div class="passroul">
-   
+<div class="yinyang">
+    <div class="container">
+        <div class="yinyang_bg" onclick="flipOpt(this)">
+            <bruh>
+                <swag><psuedo></psuedo></swag>
+                <optA>joe</optA>
+                <optB>chair</optB>
+            </bruh>
+            <!-- <div class="expand-text" id="expand" style="color:#808080">
+                <span style="color:white">Com</span><span style="color:black">press</span>
+            </div> -->
+        </div>
+        <div class="textboxarea">
+            <link rel="stylesheet" href="/css/yinyang.css">
+            <!-- Changed <input> to <textarea> -->
+            <textarea class="textboxLight" id="inputbox" placeholder="Enter input"></textarea>
+            <!-- Changed <input> to <textarea> -->
+            <textarea class="textboxDark" id="outputbox" placeholder="Output text"></textarea>
+        </div>
+        <button class="submit-btn" type="submit" onclick="SendText()">Submit</button>
+    </div>
+    <script>
+        GID = (x,ε=document)=>document.getElementById(x);
+        QS  = (x,ε=document)=>ε.querySelector(x);
+        QSA = (x,ε=document)=>[...ε.querySelectorAll(x)];
+        const togOpt = ε => QS("psuedo",ε).classList.toggle("rot180");
+        const getOpt = ε => QS("psuedo",ε).classList.contains("rot180") ?QS("optA",ε).innerText: QS("optB",ε).innerText;
+        function flipOpt(ε) {
+            togOpt(ε);
+            console.log(getOpt(ε))
+            GID( "inputbox").classList.toggle("textboxLight");
+            GID( "inputbox").classList.toggle("textboxDark" );
+            GID("outputbox").classList.toggle("textboxDark" );
+            GID("outputbox").classList.toggle("textboxLight");
+        }
+
+        function SendText() {
+            if (document.getElementById("expand").innerText=="Expand") {
+                console.log("Expand 3 - " + document.getElementById("inputbox").value);
+            } else {
+                console.log("Compress 3 - " + document.getElementById("inputbox").value);
+            }
+        }
+    </script>
 </div>
 
-
-                 
 </body>
 </html>
