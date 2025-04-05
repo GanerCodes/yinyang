@@ -41,4 +41,9 @@ module Passgen =
 
 [<EntryPoint>]
 let main args =
-    printfn "Hello from F#"
+    match args[0] with
+        | "pass" -> printfn "%A" (Passgen.run args[1]) //have to pass it the key as well
+        | "pomo" -> printfn "%A" Pomorot.work
+        | "rot" -> printfn "%A" Pomorot.brainrot
+        | _ -> printfn $"Error: unrecognized command {args[0]}"
+    0
