@@ -2,23 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/res/yinyang.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <title>Yin-Yang</title>
 </head>
                    
 <body>
-<!-- ============================================ -->
-<!--                 Navigation                   -->
-<!-- ============================================ -->
-
+<script>
+    const load = async _ => {
+        const togOpt = ε =>  QS("psuedo",ε).classList.toggle("rot180");
+        const getOpt = ε => !QS("psuedo",ε).classList.contains("rot180");
+        const e = document.createElement("div");
+        const flipOpt = ε => {
+            togOpt(ε);
+            GID( "inputbox").classList.toggle("textboxLight");
+            GID( "inputbox").classList.toggle("textboxDark" );
+            GID("outputbox").classList.toggle("textboxDark" );
+            GID("outputbox").classList.toggle("textboxLight");
+            e.ell?.onclick();
+        }
+        window.togOpt=togOpt;window.getOpt=getOpt;window.flipOpt=flipOpt;
+        const opts = await api("yy_opts",{},true);
+        e.className = "buttonList";
+        e.style.width = "60vw";
+        e.append(...[...Object.entries(opts)].map(([k,v],I) => {
+            const ε = document.createElement("button");
+            ε.innerHTML = v.join('<br>');
+            ε.onclick = async _=> {
+                [...e.children].forEach((ε,i)=>ε.disabled=i == I);
+                [QS("optA").innerText, QS("optB").innerText] = v;
+                [e.sel,e.ell] = [{p:k, evil: getOpt(QS(".yinyang_bg"))}, ε];
+            }
+            ε.disabled = false;
+            return ε;
+        }));
+        GID("mainContainer").prepend(e);
+        wrap_submit(
+            GID("submitBtn"),
+            async _ => print(e.sel) && await api("prompt", {...e.sel, msg:GID("inputbox").value}),
+            x => GID("outputbox").innerText=x);
+    }
+</script>
+<script src="/js/header.js" defer onload="load()"></script>
 <header id="cs-navigation">
     <link rel="stylesheet" href="/css/header.css">
-    <script src="/js/header.js" defer></script>
     <div class="cs-container">
         <!--Nav Logo-->
-        <a href="" class="cs-logo" aria-label="back to home">
-            <img src="/res/logo.png" alt="logo" width="210" height="29" aria-hidden="true" decoding="async">
+        <a href="/" class="cs-logo" aria-label="back to home">
+            <img src="/res/logo.png" alt="logo" class="navLogoImg" aria-hidden="true" decoding="async">
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" role="navigation">
@@ -30,92 +62,33 @@
                     <span class="cs-line cs-line3" aria-hidden="true"></span>
                 </div>
             </button>
-            <!-- We need a wrapper div so we can set a fixed height on the cs-ul in case the nav list gets too long from too many dropdowns being opened and needs to have an overflow scroll. This wrapper acts as the background so it can go the full height of the screen and not cut off any overflowing nav items while the cs-ul stops short of the bottom of the screen, which keeps all nav items in view no matter how mnay there are-->
             <div class="cs-ul-wrapper">
                 <ul id="cs-expanded" class="cs-ul" aria-expanded="false">
-                    <li class="cs-li">
-                        <a href="/" class="cs-li-link">
-                            Home
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/yinyang/" class="cs-li-link cs-active">
-                            Yin-Yang Text
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/passwordroul/" class="cs-li-link">
-                            Password Roulette
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/pomodoro/" class="cs-li-link">
-                            Pomodoro Brainrot
-                        </a>
-                    </li>
-                    <li class="cs-li">
-                        <a href="/productivity/" class="cs-li-link">
-                            Productive Slacking
-                        </a>
-                    </li>
+                    <li class="cs-li"><a href="/yinyang/" class="cs-li-link cs-active">Yin-Yang Text</a></li>
+                    <li class="cs-li"><a href="/passwordroul/" class="cs-li-link">Password Roulette</a></li>
+                    <li class="cs-li"><a href="/pomodoro/" class="cs-li-link">Pomodoro Brainrot</a></li>
+                    <li class="cs-li"><a href="/balanceboard/" class="cs-li-link">Balance Board</a></li>
                 </ul>
             </div>
         </nav>
-        <!--Dark Mode toggle, uncomment button code if you want to enable a dark mode toggle-->
-        <!-- <button id="dark-mode-toggle" aria-label="dark mode toggle">
-            <svg class="cs-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" style="enable-background:new 0 0 480 480" xml:space="preserve"><path d="M459.782 347.328c-4.288-5.28-11.488-7.232-17.824-4.96-17.76 6.368-37.024 9.632-57.312 9.632-97.056 0-176-78.976-176-176 0-58.4 28.832-112.768 77.12-145.472 5.472-3.712 8.096-10.4 6.624-16.832S285.638 2.4 279.078 1.44C271.59.352 264.134 0 256.646 0c-132.352 0-240 107.648-240 240s107.648 240 240 240c84 0 160.416-42.688 204.352-114.176 3.552-5.792 3.04-13.184-1.216-18.496z"/></svg>
-            <img class="cs-sun" aria-hidden="true" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Icons%2Fsun.svg" decoding="async" alt="moon" width="15" height="15">
-        </button> -->
     </div>
 </header>
 
-<!-- ======================================= -->
-<!--             Yin-Yang Page               -->
-<!-- ======================================= -->
 <div class="yinyang">
-    <div class="container">
+    <div id="mainContainer" class="container">
         <div class="yinyang_bg" onclick="flipOpt(this)">
             <bruh>
-                <swag><psuedo></psuedo></swag>
-                <optA>joe</optA>
-                <optB>chair</optB>
+                <swag><psuedo class="rot180" onload="this.offsetHeight"></psuedo></swag>
+                <optA></optA><optB></optB>
             </bruh>
-            <!-- <div class="expand-text" id="expand" style="color:#808080">
-                <span style="color:white">Com</span><span style="color:black">press</span>
-            </div> -->
         </div>
         <div class="textboxarea">
             <link rel="stylesheet" href="/css/yinyang.css">
-            <!-- Changed <input> to <textarea> -->
-            <textarea class="textboxLight" id="inputbox" placeholder="Enter input"></textarea>
-            <!-- Changed <input> to <textarea> -->
-            <textarea class="textboxDark" id="outputbox" placeholder="Output text"></textarea>
+            <textarea class="textboxLight" id="inputbox" placeholder="Enter input"         ></textarea>
+            <textarea class="textboxDark" id="outputbox" placeholder="Output text" readonly></textarea>
         </div>
-        <button class="submit-btn" type="submit" onclick="SendText()">Submit</button>
+        <button id="submitBtn" class="submit-btn" type="submit">Submit</button>
     </div>
-    <script>
-        GID = (x,ε=document)=>document.getElementById(x);
-        QS  = (x,ε=document)=>ε.querySelector(x);
-        QSA = (x,ε=document)=>[...ε.querySelectorAll(x)];
-        const togOpt = ε => QS("psuedo",ε).classList.toggle("rot180");
-        const getOpt = ε => QS("psuedo",ε).classList.contains("rot180") ?QS("optA",ε).innerText: QS("optB",ε).innerText;
-        function flipOpt(ε) {
-            togOpt(ε);
-            console.log(getOpt(ε))
-            GID( "inputbox").classList.toggle("textboxLight");
-            GID( "inputbox").classList.toggle("textboxDark" );
-            GID("outputbox").classList.toggle("textboxDark" );
-            GID("outputbox").classList.toggle("textboxLight");
-        }
-
-        function SendText() {
-            if (document.getElementById("expand").innerText=="Expand") {
-                console.log("Expand 3 - " + document.getElementById("inputbox").value);
-            } else {
-                console.log("Compress 3 - " + document.getElementById("inputbox").value);
-            }
-        }
-    </script>
 </div>
 
 </body>

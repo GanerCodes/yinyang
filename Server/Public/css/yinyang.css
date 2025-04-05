@@ -78,8 +78,7 @@
 }
 
 /* Optional: focus and active styles for button */
-.submit-btn:focus,
-.submit-btn:active {
+.submit-btn:focus, .submit-btn:active {
     outline: none;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -89,26 +88,21 @@
     background:#0000;
     margin:0px;padding:0px;
     margin-bottom:10px;
+    margin-top:10px;
     transform-origin: center;
     align-items: center;
     justify-content: center;
     justify-items: center;
     align-content: space-around;
     overflow: hidden; }
-.yinyang_bg:hover {
-    cursor:pointer;
-    /* box-shadow: inset 0 0 50vw #ff01; */
-}
-.yinyang_bg:active {
-    /* box-shadow: inset 0 0 50vw #ff03; */
-}
-    
+.yinyang_bg:hover { cursor:pointer; }
+   
 bruh {
     display:flex;flex-direction:row;justify-content:space-around;
     align-items:center;
     width:60vw;height:10vh; }
-bruh:first-child { color:#000; }
-bruh:last-child { color:#fff; }
+bruh:first-child { color:#fff; }
+bruh:last-child  { color:#000; }
 swag {
     position:absolute;z-index:-1;
     display:flex;justify-content:center;align-items:center;
@@ -119,7 +113,8 @@ psuedo {
     content: "";
     transition: transform 1s ease;
     transform: rotate(0deg);
-    width:calc(180vmin);height:calc(180vmin);
+    width:87vh;
+    aspect-ratio:1;
     background: url('../res/yinyang.svg') no-repeat center;
     background-size: cover; }
 

@@ -89,7 +89,7 @@
     100% { transform: scaleY(1); }
   }
 
-  .yinText {
+  .yinnText {
     color: white;
     display: flex;
     flex-direction: column;

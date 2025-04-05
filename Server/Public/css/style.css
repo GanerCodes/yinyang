@@ -24,11 +24,35 @@ body {
     padding: 0; }
 
 textarea {
-    border: none;
-    outline: none;
-    transition: background-color 1s ease;
-    resize: none;
+    border:none;outline:none;resize:none;
+    transition: color 1s ease;
+    transition: background-color 1s ease; }
+button {
+    transition: color .1s ease;
+    transition: background-color .25s ease; }
+button:not([disabled]):hover { cursor: pointer; }
+
+.buttonList {
+    display:flex;flex-direction:row;
+    width:100%;min-height:5%;
+    align-items:center;justify-content:space-evenly;
+    gap:1vw;
 }
+.buttonList > button {
+    border-radius: 1vw;
+    background-color:#fff;color:#000;
+    border:none;outline:none;
+    align-content:center;
+    min-width:100px;
+    flex-grow:1;
+    height:100%;
+    font-size:2.5vw; }
+.buttonList button:disabled      { background-color:#fff;color:#000; }
+.buttonList button:enabled:hover { background-color:#888;color:#fff; }
+.buttonList button:enabled       { background-color:#000;color:#fff; }
+
+#cs-expanded { gap: 1vw; }
+.navLogoImg { height:100%;padding-right:5px; }
 
 *, *:before, *:after {
     /* prevents padding from affecting height and width */
