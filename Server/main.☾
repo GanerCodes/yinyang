@@ -15,6 +15,7 @@ cors = ℵ({"access-control-allow-origin": ␛*})
     ‹⟦𝚖⟧:⟦𝚙⟧›☾
     P = 𝚙₁﹕
     ¿𝚖≡"GET":
+        ¿P∈‹pomo rot calm chaos›⍭: ↪$ᴼᵉ⟦hack_path⟧ ⟦P⟧󷹹, ℵ(𝙲𝚃=‹.html›)
         P = safej(Pub,P)
         ¿P.is_dir : P󷸊/‹index.html›
         ¿P.is_file: ↪ᵇ(P), ℵ(𝙲𝚃=P.suffix)
@@ -22,7 +23,6 @@ cors = ℵ({"access-control-allow-origin": ␛*})
         j = ℵ∘𝔍󰄟(𝚎􋈷∘𝙷􋕨󰂼ₙₜₑₙₜ₋ₗₑₙₜₕ􋕨󷹜)
         M = j.pop(␛M)
         ¿M≡‹pass›                : ↪$ᴼ⟦hack_path⟧ ⟦M⟧ ⟦PB_KEY⟧󷹹
-        ¿M∈‹pomo rot calm chaos›⍭: ↪$ᴼ⟦hack_path⟧ ⟦M⟧󷹹
         ¿M≡‹yy_opts›             : ↪𝔍󰄞(yy_opts)
         ¿M≡‹prompt󷺗›             : ↪prompt(⠶j)
     ↪ 404

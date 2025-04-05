@@ -39,10 +39,9 @@
     </div>
 </header>
 
-<div id="content" style="width:100%;height:100%;padding-top:8vh;"></div>
-<script defer>
-    api("pomo",{}).then(x => GID("content").innerHTML=x);
-</script>
+<div id="content" style="width:100%;height:100%;padding-top:8vh;">
+    <div hx-trigger="load" hx-get="/pomo"></div>
+</div>
 
 </body>
 </html>
