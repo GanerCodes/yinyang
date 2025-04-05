@@ -6,10 +6,10 @@ module Calmandchaos =
     // like pomorot, but switching back every 8 (auspicious or w/e) minutes; calm playing rain sounds & showing a picture of a painting or smth & chaos doing black metal & gunfire
     let calmendpoint = "/calm"
     let chaosendpoint = "/chaos"
-    let calmaudsrc = "/calm.mp4"
-    let chaosaudsrc = "/chaos.mp4"
-    let calmimgsrc = "/calm.FILEXT"
-    let chaosimgsrc = "/chaos.FILEXT"
+    let calmaudsrc = "/calm.mp3"
+    let chaosaudsrc = "/chaos.mp3"
+    let calmimgsrc = "/calm.jpeg"
+    let chaosimgsrc = "/chaos.jpeg"
     let waittime = string (8*60)        //https://en.wikipedia.org/wiki/Bagua
     let format endpoint audio image =
         $"<div align=\"center\" hx-get=\"{endpoint}\" hx-trigger=\"load delay:{waittime}\" hx-swap=\"outerHTML\"><image src=\"{image}\" /><audio src=\"{audio}\" autoplay=\"true\" loop=\"true\"></audio></div>"
