@@ -17,41 +17,43 @@
                 background:#0000;
                 overflow: hidden;
                 border: 5px solid red;
-                /* background: url(yinyang.svg); */
-                /* transition: transform 1s ease; */
-                /* background-attachment: fixed; */
-                /* background-position: center; */
             }
-            
-            psuedo {
-              z-index:-1;
-              content: "";
-              transition: transform 1s ease;
-              transform: rotate(0deg);
-              position: absolute;
-              width:100%;height:100%;
-              top:0;left:0;
-              background: url('yinyang.svg') no-repeat center;
-              background-size: cover;
-            }
+            .bruh {
+                display:flex;flex-direction:row;justify-content:space-between;
+                width:100%; }
             swag {
                 position:absolute;z-index:-1;
-                width:100%;height:100%;
-                top:0;left:0;
+                display:flex;justify-content:center;align-items:center;
+                width:500px;height:200px;
                 clip-path: polygon(calc(50% - 250px) calc(50% - 100px),
                                    calc(50% + 250px) calc(50% - 100px),
                                    calc(50% + 250px) calc(50% + 100px),
-                                   calc(50% - 250px) calc(50% + 100px));
-            }
+                                   calc(50% - 250px) calc(50% + 100px)); }
+            psuedo {
+                position:absolute;z-index:-1;
+                content: "";
+                transition: transform 1s ease;
+                transform: rotate(0deg);
+                width:1000px;height:1000px;
+                background: url('yinyang.svg') no-repeat center;
+                background-size: cover; }
+            
             .rot180 { transform: rotate(180deg); }
         </style>
     </head>
     <body>
         <div class="yinyang_bg">
-            <div style="display:flex;flex-direction:row;justify-content:space-between;width:100%;">
+            <div class="bruh">
                 <swag><psuedo></psuedo></swag>
                 <text style="color:red">left stuff</text>
                 <text style="color:red">right stuff</text>
+            </div>
+        </div>
+        <div class="yinyang_bg">
+            <div class="bruh">
+                <swag><psuedo></psuedo></swag>
+                <text style="color:green">left stuff</text>
+                <text style="color:green">right stuff</text>
             </div>
         </div>
         <script>
