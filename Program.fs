@@ -21,8 +21,8 @@ module Passgen =
     // One call to generate a password
     // an array of 100 random bytes hashed w/ SHA256 & returned as a hex string
     let genpass =
-        let buf = new Span<byte>()
-        (new Random()).NextBytes(buf)
+        let buf: byte [] = Array.zeroCreate 100
+        (new Random(DateTime.UtcNow.Millisecond * DateTime.UtcNow.Microsecond)).NextBytes(buf) // different seeds!
         SHA256.HashData(buf) |> Convert.ToHexString
 
     // Internal functions to send it to a pastebin
