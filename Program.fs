@@ -1,5 +1,6 @@
-﻿open System.Security.Cryptography
-open System
+﻿open System
+open System.Security.Cryptography
+open System.Net.Http
 
 module Pomotok =
     let endpoint = "/pomotok"
@@ -15,8 +16,15 @@ module Passgen =
         let buf = new Span<byte>()
         (new Random()).NextBytes(buf)
         SHA256.HashData(buf) |> Convert.ToHexString
+
     // Internal functions to send it to a pastebin
     // pastebin API: https://pastebin.com/doc_api
+    let pastebin key x =
+        let endpoint = "https://pastebin.com/api/api_post.php"
+        let client = new HttpClient()
+        let headers = new Headers.MediaTypeHeaderValue("application/x-www-form-urlencoded")
+        let content = new StringContent($"api_dev_key={key}&api_paste_code={x}&api_option=paste", headers)
+        client.PostAsync(endpoint, content).Result
 
 // For more information see https://aka.ms/fsharp-console-apps
 printfn "Hello from F#"
