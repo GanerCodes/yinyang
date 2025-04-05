@@ -51,6 +51,7 @@
 
   .dilemma-sweep {
     position: absolute;
+    padding: 5px;
     width: 50%;
     height: 100%;
     top: 0;

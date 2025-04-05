@@ -70,3 +70,14 @@ button:not([disabled]):hover { cursor: pointer; }
     border:none;border-radius:4px;
     font-size: 16px; }
 .submit-btn:hover { background-color:#000;color:#fff; }
+
+sub {vertical-align: sub;  }
+sup {vertical-align: super;}
+
+.loading {
+    content: "↻";
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    0%   { transform: rotate(  0deg); }
+    100% { transform: rotate(360deg); } }
