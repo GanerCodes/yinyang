@@ -41,7 +41,7 @@ client = OpenAI(api_key=environ.get(‹OAI_KEY›))
         msgs = (‹system›⋄p,‹user›⋄‹⟦t􊴎₍ₑᵥᵢₗ₎⟧ 3 - ⟦msg⟧›)
     ↪ client.chat.completions.create(
         model=‹gpt-4o-mini›,
-        messages=msgsᐵ󱑼ᵜ⍭‹role content›ᐸᴍ𝑑
+        messages=msgsᐵ󱑼ᵜ⍭‹role content›ᐸᴍ𝑑→☾
       ).choices₀.message.content
 
 yy_opts = ℵ(PROMPTSꟿ󷺻⟝₀🃌≡2⭜(⟞,⟝₀)⭝󰮈󷺿)
