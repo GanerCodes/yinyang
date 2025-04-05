@@ -10,7 +10,8 @@ module Calmandchaos =
     let chaosaudsrc = "/chaos.mp3"
     let calmimgsrc = "/calm.jpg"
     let chaosimgsrc = "/chaos.jpg"
-    let waittime = string (8*60)        //https://en.wikipedia.org/wiki/Bagua
+    // let waittime = string (8*60)        //https://en.wikipedia.org/wiki/Bagua
+    let waittime = string 30
     let format endpoint audio image =
         $"<div align=\"center\" hx-get=\"{endpoint}\" hx-trigger=\"load delay:{waittime}s\" hx-swap=\"outerHTML\"><image src=\"{image}\" /><audio src=\"{audio}\" autoplay=\"true\" loop=\"true\"></audio></div>"
     let calm = format chaosendpoint calmaudsrc calmimgsrc
