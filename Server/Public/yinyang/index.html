@@ -7,36 +7,33 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>Yin-Yang</title>
 </head>
-                   
+
 <body>
 <script>
     const load = async _ => {
         const togOpt = ε =>  QS("psuedo",ε).classList.toggle("rot180");
         const getOpt = ε => !QS("psuedo",ε).classList.contains("rot180");
         const e = document.createElement("div");
-        const flipOpt = ε => {
+        const flipOpt = window.flipOpt = ε => {
             togOpt(ε);
             GID( "inputbox").classList.toggle("textboxLight");
             GID( "inputbox").classList.toggle("textboxDark" );
-            GID("outputbox").classList.toggle("textboxDark" );
             GID("outputbox").classList.toggle("textboxLight");
-            e.ell?.onclick();
-        }
-        window.togOpt=togOpt;window.getOpt=getOpt;window.flipOpt=flipOpt;
+            GID("outputbox").classList.toggle("textboxDark" );
+            e.ell?.onclick(); };
         const opts = await api("yy_opts",{},true);
         e.className = "buttonList";
-        e.style.width = "60vw";
+        e.style.width = "80%";
         e.append(...[...Object.entries(opts)].map(([k,v],I) => {
             const ε = document.createElement("button");
             ε.innerHTML = v.join('<br>');
             ε.onclick = async _=> {
                 [...e.children].forEach((ε,i)=>ε.disabled=i == I);
                 [QS("optA").innerText, QS("optB").innerText] = v;
-                [e.sel,e.ell] = [{p:k, evil: getOpt(QS(".yinyang_bg"))}, ε];
-            }
+                [e.sel,e.ell] = [{p:k, evil: getOpt(QS(".yinyang_bg"))}, ε]; };
             ε.disabled = false;
-            return ε;
-        }));
+            return ε; }));
+        e.children[0].click();
         GID("mainContainer").prepend(e);
         wrap_submit(
             GID("submitBtn"),

@@ -1,52 +1,59 @@
+*, *:before, *:after { box-sizing: border-box; }
+
+::-webkit-scrollbar { width:6px;height:6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background-color: rgba(100, 100, 100, 0.5);
+  border-radius: 4px;
+  border: 1px solid transparent;
+  background-clip: content-box; }
+* { scrollbar-width: thin;
+    scrollbar-color: rgba(100, 100, 100, 0.5) transparent; }
+
 :root {
     /* Add these styles to your global stylesheet, which is used across all site pages. You only need to do this once. All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
     --primary: #000;
     --primaryLight: #fff;
     --bg: #334;
+    --headerBg: #bbc;
     --secondary: #fff;
     --secondaryLight: #000;
     --headerColor: #4e4b66;
     --bodyTextColor: #4e4b66;
     --bodyTextColorWhite: #4e4b66;
-    --headerBg: #bbc;
-    /* 13px - 16px */
     --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
-    /* 31px - 49px */
     --headerFontSize: clamp(1.9375rem, 3.9vw, 3.0625rem);
     --bodyFontSize: 1rem;
-    /* 60px - 100px top and bottom */
-    --sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 }
 
 body {
-    background-color: var(--bg);
-    margin: 0;
-    padding: 0; }
+    margin:0;padding:0;
+    background-color: var(--bg); }
 
 textarea {
     border:none;outline:none;resize:none;
-    transition: color 1s ease;
-    transition: background-color 1s ease; }
+    transition: color 1s ease, background-color 1s ease; }
 button {
-    transition: color .1s ease;
-    transition: background-color .25s ease; }
+    transition: color .25s ease, background-color .25s ease; }
 button:not([disabled]):hover { cursor: pointer; }
 
 .buttonList {
     display:flex;flex-direction:row;
+    flex-wrap: wrap;
     width:100%;min-height:5%;
     align-items:center;justify-content:space-evenly;
     gap:1vw;
 }
 .buttonList > button {
-    border-radius: 1vw;
+    flex-grow:1;
     background-color:#fff;color:#000;
+    height:auto;
     border:none;outline:none;
+    padding-bottom:.5vh;padding-top:.5vh;
+    border-radius: 1vmax;
     align-content:center;
     min-width:100px;
-    flex-grow:1;
-    height:100%;
-    font-size:2.5vw; }
+    font-size:2.5vmin; }
 .buttonList button:disabled      { background-color:#fff;color:#000; }
 .buttonList button:enabled:hover { background-color:#888;color:#fff; }
 .buttonList button:enabled       { background-color:#000;color:#fff; }
@@ -54,40 +61,12 @@ button:not([disabled]):hover { cursor: pointer; }
 #cs-expanded { gap: 1vw; }
 .navLogoImg { height:100%;padding-right:5px; }
 
-*, *:before, *:after {
-    /* prevents padding from affecting height and width */
-    box-sizing: border-box;
-}
-.cs-topper {
-    font-size: var(--topperFontSize);
-    line-height: 1.2em;
-    text-transform: uppercase;
-    text-align: inherit;
-    letter-spacing: .1em;
-    font-weight: 700;
-    color: var(--primary);
-    margin-bottom: 0.25rem;
+.submit-btn {
     display: block;
-}
-
-.cs-title {
-    font-size: var(--headerFontSize);
-    font-weight: 900;
-    line-height: 1.2em;
-    text-align: inherit;
-    max-width: 43.75rem;
-    margin: 0 0 1rem 0;
-    color: var(--headerColor);
-    position: relative;
-}
-
-.cs-text {
-    font-size: var(--bodyFontSize);
-    line-height: 1.5em;
-    text-align: inherit;
-    width: 100%;
-    max-width: 40.625rem;
-    margin: 0;
-    color: var(--bodyTextColor);
-}
-                            
+    padding: 10px 20px;
+    margin-top: 2vmin;
+    width: 30vmax;
+    background-color:#fff;color:#000;
+    border:none;border-radius:4px;
+    font-size: 16px; }
+.submit-btn:hover { background-color:#000;color:#fff; }

@@ -1,94 +1,36 @@
-:root {
-    overflow: hidden;
-}
+:root { overflow: hidden; }
 
-/* Center everything */
+.yinyang { padding-top: 9vh; }
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Stack elements vertically */
-    height: 100vh;
-}
+    display:flex;flex-direction:column;
+    justify-content:center;align-items:center; }
 
-/* Flex container for textboxes and image */
 .textboxarea {
-    display: flex;
-    align-items: center; /* Vertically center textboxes and image */
-    justify-content: center;
-    gap: 0vw; /* Space between textboxes and image */
-    flex-wrap: wrap; /* Allow wrapping if the screen is small */
-}
+    display:flex;flex-wrap:wrap;
+    align-items:center;justify-content:center;
+    gap: 0vw; }
 
-.textboxLight, .textboxDark {
-    width: 30vw;
-    height: 50vh;
+.textboxLight,.textboxDark {
+    width:30vw;height:50vh;
     padding: 5px;
     font-size: 14px;
-    border-radius: 4px;
-}
+    border-radius: 4px; }
 
-/* Style for the textboxes */
-.textboxLight {
-    background-color: #fff;
-    color: #000;
-}
-.textboxDark {
-    background-color: #000;
-    color: #fff;
-}
+.textboxLight { background-color:#fff;color:#000; }
+.textboxDark  { background-color:#000;color:#fff; }
 
-/* Style for the image container */
 .togglebar {
-    display: flex;
-    width: 80vw;
-    height: 20vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    width:80vw;height:20vh; }
 
-/* Style for the "Expand" text */
-.expand-text {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-/* Submit button style */
-.submit-btn {
-    padding: 10px 20px;
-    background-color: #fff;
-    color: #000;
-    font-size: 16px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
-    display: block;
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto; /* Center button */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover */
-}
-
-.submit-btn:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-/* Optional: focus and active styles for button */
-.submit-btn:focus, .submit-btn:active {
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
+.yinyang_bg, bruh, swag { width:60vw;height:8vh; }
+bruh, swag, psuedo {border-radius: 50000px;}
 .yinyang_bg {
-    width:60vw;height:10vh;
     background:#0000;
     margin:0px;padding:0px;
-    margin-bottom:10px;
-    margin-top:10px;
+    margin-bottom:1vmin;margin-top:1vmin;
     transform-origin: center;
     align-items: center;
     justify-content: center;
@@ -99,25 +41,22 @@
    
 bruh {
     display:flex;flex-direction:row;justify-content:space-around;
-    align-items:center;
-    width:60vw;height:10vh; }
+    align-items:center; }
+bruh > * { font-size: 2.5vmin; }
 bruh:first-child { color:#fff; }
 bruh:last-child  { color:#000; }
 swag {
     position:absolute;z-index:-1;
     display:flex;justify-content:center;align-items:center;
-    width:60vw;height:10vh;
-    clip-path: xywh(0% 2px 100% calc(100% - 4px) round 2vmin); }
+    clip-path: xywh(0% 0px 100% 100% round 2vmin); }
 psuedo {
     position:absolute;z-index:-1;
     content: "";
     transition: transform 1s ease;
     transform: rotate(0deg);
-    width:87vh;
+    width:142vh;
     aspect-ratio:1;
-    background: url('../res/yinyang.svg') no-repeat center;
+    background: url('../res/yinyang.svg') no-repeat center calc(50% - 0.1vh);
     background-size: cover; }
-
-bruh, swag, psuedo {border-radius: 5000px;}
 
 .rot180 { transform: rotate(180deg); }
