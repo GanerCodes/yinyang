@@ -79,7 +79,7 @@
         <div class="textboxarea">
             <link rel="stylesheet" href="/frontend/css/yinyang.css">
             <!-- Changed <input> to <textarea> -->
-            <textarea class="textbox" placeholder="Enter input"></textarea>
+            <textarea class="textbox" id="inputbox" placeholder="Enter input"></textarea>
             <div class="image-container">
                 <div class="expand-text" id="expand">Expand</div>
                 <img src="/frontend/res/yinyang.png" id="yinyang" style="height: 10vh" onclick="FlipOption()"></img>
@@ -87,7 +87,7 @@
             <!-- Changed <input> to <textarea> -->
             <textarea class="textbox" placeholder="Output text"></textarea>
         </div>
-        <button class="submit-btn" type="submit">Submit</button>
+        <button class="submit-btn" type="submit" onclick="SendText()">Submit</button>
     </div>
     <script>
         function FlipOption() {
@@ -99,6 +99,14 @@
             } else {
                 document.getElementById("yinyang").src = "/frontend/res/yinyang.png";
                 element.innerText = "Expand";
+            }
+        }
+
+        function SendText() {
+            if (document.getElementById("expand").innerText=="Expand") {
+                console.log("Expand 3 - " + document.getElementById("inputbox").value);
+            } else {
+                console.log("Compress 3 - " + document.getElementById("inputbox").value);
             }
         }
     </script>
